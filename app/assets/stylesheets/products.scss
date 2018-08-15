@@ -27,6 +27,18 @@ main section.categories-show {
         display: block;
       }
 
+      div.soldout {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: tomato;
+        color: white;
+        border-top-left-radius: 4px;
+        border-bottom-right-radius: 20px;
+        font-size: 0.8em;
+      }
+
       footer {
         position: absolute;
         bottom: 0;
