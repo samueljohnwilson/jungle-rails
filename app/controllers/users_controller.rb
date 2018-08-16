@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   
   def new
     @user = User.new
@@ -12,9 +12,8 @@ class UserController < ApplicationController
     @user = User.find params[:id]
   end
 
-
-  def category_params
-    params.require(:category).permit(:name)
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
   end
 
 end
