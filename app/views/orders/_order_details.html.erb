@@ -1,0 +1,14 @@
+<% line_item = LineItem.find(@order.id) %>
+<% product = Product.find(line_item.product_id) %>
+
+  <div class="col-sm-4">
+    <%# <%= image_tag product.image, class: 'main-img' %>
+  </div>
+  <li><%= line_item.quantity %></li>
+  <li><%= product.name %></li>
+  <li><%= product.description %></li>
+  <li><%= humanized_money_with_symbol product.price_cents %></li>
+
+  <li>Total: <%= humanized_money_with_symbol @order.total %></li>
+
+
