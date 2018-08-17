@@ -65,9 +65,6 @@ ActiveRecord::Schema.define(version: 20180817181816) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "reviews", ["product_id"], name: "index_reviews_on_product_id", using: :btree
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -79,6 +76,4 @@ ActiveRecord::Schema.define(version: 20180817181816) do
   add_foreign_key "line_items", "orders"
   add_foreign_key "line_items", "products"
   add_foreign_key "products", "categories"
-  add_foreign_key "reviews", "products"
-  add_foreign_key "reviews", "users"
 end
