@@ -26,8 +26,8 @@
           <dd><%= @product.id %></dd>
         </dl>
 
-        <h5><%= current_user %></h5>
-          <% @reviews.each do |review| %>
+        <h5>Reviews</h5>
+          <% @reviews.reverse.each do |review| %>
           <p>Description: <%= review.description %></p>
           <p>Rating: <%= review.rating %></p>
         <% end %>
