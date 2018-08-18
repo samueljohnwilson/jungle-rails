@@ -7,4 +7,8 @@ class Order < ActiveRecord::Base
 
   validates :stripe_charge_id, presence: true
 
+  def send_welcome_email
+    OrderMailer.welcome_email(self).deliver_now
+  end
+
 end

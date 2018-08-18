@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       redirect_to '/'
-      user.send_welcome_email
     else
       redirect_to '/signup'
     end

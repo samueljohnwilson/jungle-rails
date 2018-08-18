@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h4>Thank you for your order!</h4>
+    <h5>Order Details:</h5>
+    <ul>
+      <% line_item = LineItem.where({order_id: @order.id}) %>
+      <% line_item.each do |item| %>
+        <% product = Product.find(item.product_id) %>
+        <li>Name: <%= product.name %></li>
+        <li>Price: <%= humanized_money_with_symbol item.item_price %></li>
+        <li>Quantity: <%= item.quantity %></li>
+      <% end %>
+        <li>Total: <%= humanized_money_with_symbol @order.total %>
+      </li>
+    </ul>
+  </body>
+</html>
+
