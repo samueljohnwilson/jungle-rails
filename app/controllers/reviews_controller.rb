@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+
+  #before_action :authenticate_user, only: [:create, :destroy]
+
   def create
     @review = Review.new(review_params)
     if @review.save
