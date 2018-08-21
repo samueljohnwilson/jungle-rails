@@ -84,6 +84,24 @@ RSpec.describe User, type: :model do
 
     end
 
+    it 'should be invalid if the email is not found' do
+
+      user = User.create(name: 'Steve', email: 'email@email.com', password: 'password', password_confirmation: 'password')
+      user.save
+
+      expect(User.authenticate_with_credentials('another@email.com', 'password')).not_to eq(user)
+
+    end
+
+    it 'should be invalid if the password is unauthorized' do
+
+      user = User.create(name: 'Steve', email: 'email@email.com', password: 'password', password_confirmation: 'password')
+      user.save
+
+      expect(User.authenticate_with_credentials('email@email.com', 'different')).not_to eq(user)
+
+    end
+
   end
 
 end
